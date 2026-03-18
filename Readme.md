@@ -29,5 +29,8 @@ curl -fsSL https://ollama.com/install.sh | sh
 ollama pull qwen3.5:4b
 
 # Client setup
+```
 git clone https://github.com/openclaw/openclaw.git
 cd openclaw
+sudo ./docker-setup.sh
+```

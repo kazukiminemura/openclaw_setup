@@ -153,6 +153,11 @@ services:
     Linuxでも host.docker.internal を使えるよう extra_hosts を入れる
 
 # Manural install
+Official container
+```
+https://github.com/openclaw/openclaw/pkgs/container/openclaw
+```
+
 ```
 docker pull ubuntu:24.04
 docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --network host ubuntu:24.04 bash

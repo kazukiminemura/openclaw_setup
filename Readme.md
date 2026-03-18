@@ -33,5 +33,12 @@ reboot
 ```
 git clone https://github.com/openclaw/openclaw.git
 cd openclaw
+
+add YML
+services:
+  openclaw-gateway:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
 sudo ./docker-setup.sh
 ```

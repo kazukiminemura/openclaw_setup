@@ -152,4 +152,8 @@ services:
     env_file: .env で秘密情報は環境変数一元化（gitに載せない）
     Linuxでも host.docker.internal を使えるよう extra_hosts を入れる
 
+# Manural install
+```
+curl -fsSL https://openclaw.ai/install.sh | bash
+```
 

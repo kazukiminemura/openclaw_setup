@@ -52,7 +52,7 @@ OPENAI_BASE_URL=http://host.docker.internal:11434/v1
 OPENAI_API_KEY=dummy-ignored-by-ollama
 
 # モデル名（Ollama側に存在するもの）
-OPENAI_MODEL=llama3.2
+OPENAI_MODEL=qwen3.5:4b
 
 # =========================
 # チャネル：Telegram

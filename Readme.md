@@ -83,3 +83,13 @@ LINE_WEBHOOK_BASE_URL=https://CHANGE_ME.example.com
 
 sudo ./docker-setup.sh
 ```
+
+## トークン生成（最低限）
+```
+python3 - <<'PY'
+import secrets
+print(secrets.token_urlsafe(48))
+PY
+```
+
+出た文字列を .env の OPENCLAW_GATEWAY_TOKEN に貼る。

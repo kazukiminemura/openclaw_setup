@@ -82,7 +82,7 @@ LINE_WEBHOOK_BASE_URL=https://CHANGE_ME.example.com
 ```
 
 sudo ./docker-setup.sh
-```
+
 
 ## トークン生成（最低限）
 ```
@@ -122,6 +122,7 @@ services:
 
     restart: unless-stopped
 ```
+
 ## ポイント
     127.0.0.1:3000:3000 で ローカルPCからしかアクセスできない
     env_file: .env で秘密情報は環境変数一元化（gitに載せない）

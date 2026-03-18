@@ -93,3 +93,36 @@ PY
 ```
 
 出た文字列を .env の OPENCLAW_GATEWAY_TOKEN に貼る。
+
+
+## docker-compose.yml（ローカル限定＆安全寄り）
+docker-compose.yml を作成：
+```
+version: "3.9"
+
+services:
+  openclaw:
+    image: ghcr.io/openclaw/openclaw:latest
+    container_name: openclaw
+    env_file:
+      - .env
+
+    # ✅ 重要：外部に晒さない（localhost限定）
+    ports:
+      - "127.0.0.1:3000:3000"
+
+    # ✅ 重要：最低限だけマウント
+    volumes:
+      - ./workspace:/workspace
+      - ./config:/config
+
+    # ✅ Linux対策：host.docker.internal を生やす（Mac/Winでも害はない）
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    restart: unless-stopped
+```
+## ポイント
+    127.0.0.1:3000:3000 で ローカルPCからしかアクセスできない
+    env_file: .env で秘密情報は環境変数一元化（gitに載せない）
+    Linuxでも host.docker.internal を使えるよう extra_hosts を入れる

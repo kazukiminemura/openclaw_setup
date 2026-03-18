@@ -24,3 +24,4 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 
 ## ollama
 curl -fsSL https://ollama.com/install.sh | sh
+ollama pull qwen3.5:4b

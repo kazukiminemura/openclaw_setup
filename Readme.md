@@ -154,6 +154,8 @@ services:
 
 # Manural install
 ```
+docker pull ubuntu:24.04
+docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --network host ubuntu:24.04 bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 

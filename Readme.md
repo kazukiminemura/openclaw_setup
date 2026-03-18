@@ -23,6 +23,30 @@ EOF
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+
+## for non root setup
+```
+Create the docker group.
+
+ sudo groupadd docker
+
+Add your user to the docker group.
+
+ sudo usermod -aG docker $USER
+
+Log out and log back in so that your group membership is re-evaluated.
+
+    If you're running Linux in a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.
+
+You can also run the following command to activate the changes to groups:
+
+ newgrp docker
+
+Verify that you can run docker commands without sudo.
+
+ docker run hello-world
+```
+
 ## ollama
 ```
 curl -fsSL https://ollama.com/install.sh | sh
@@ -127,3 +151,5 @@ services:
     127.0.0.1:3000:3000 で ローカルPCからしかアクセスできない
     env_file: .env で秘密情報は環境変数一元化（gitに載せない）
     Linuxでも host.docker.internal を使えるよう extra_hosts を入れる
+
+

@@ -21,13 +21,14 @@ Signed-By: /etc/apt/keyrings/docker.asc
 EOF
 ```
 sudo apt update
-
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 ## ollama
+```
 curl -fsSL https://ollama.com/install.sh | sh
 ollama pull qwen3.5:4b
 reboot
+```
 
 # Client setup
 ```

@@ -170,3 +170,10 @@ apt update && apt install curl git vim x11-apps -y
 xeyes
 ```
 
+# condig openclaw
+```
+
+openclaw configure --section mode
+
+```
+

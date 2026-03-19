@@ -160,6 +160,9 @@ https://github.com/openclaw/openclaw/pkgs/container/openclaw
 
 ## on host
 ```
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+google-chrome-stable
 xhost +local:docker
 ```
 
@@ -170,7 +173,7 @@ apt update && apt install curl git vim x11-apps -y
 xeyes
 ```
 
-# condig openclaw
+## config openclaw on container 
 ```
 openclaw configure --section mode
 openclaw configure --section channels

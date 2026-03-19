@@ -1,7 +1,4 @@
-# Host setup
-
-sudo apt install git
-
+# [Host] setup for docker
 ```
 sudo apt update
 sudo apt install ca-certificates curl
@@ -9,8 +6,7 @@ sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
-
-# Add the repository to Apt sources:
+## Add the repository to Apt sources:
 ```
 sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
 Types: deb
@@ -23,10 +19,8 @@ EOF
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-
 ## for non root setup
 Create the docker group.
-
 ```
  sudo groupadd docker
 ```
@@ -47,15 +41,14 @@ Verify that you can run docker commands without sudo.
  docker run hello-world
 ```
 
-## ollama
+## ollama on host
 ```
 curl -fsSL https://ollama.com/install.sh | sh
 ollama pull qwen3.5:4b
 reboot
 ```
 
-
-# Manural install
+# Manural install for openclaw
 Official container
 ```
 https://github.com/openclaw/openclaw/pkgs/container/openclaw

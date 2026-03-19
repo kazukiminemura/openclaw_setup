@@ -72,10 +72,14 @@ xeyes
 
 ## config openclaw on container 
 ```
-openclaw configure --section mode
+openclaw configure --section model
 openclaw configure --section channels
 openclaw doctor --fix
 openclaw gateway restart
+```
+## model for remote
+```
+openclaw onboard --auth-choice openai-codex
 ```
 
 ## Skills setup

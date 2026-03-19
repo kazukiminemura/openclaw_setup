@@ -172,8 +172,7 @@ xeyes
 
 # condig openclaw
 ```
-
 openclaw configure --section mode
-
+openclaw configure --section channels
 ```
 

@@ -51,7 +51,7 @@ ollama pull qwen3.5:4b
 reboot
 ```
 
-# Manural install for openclaw
+# Manual install for openclaw
 Official container
 ```
 https://github.com/openclaw/openclaw/pkgs/container/openclaw

@@ -79,7 +79,7 @@ openclaw gateway restart
 ```
 ## model for remote (openAI)
 ```
-openclaw onboard --auth-choice openai-codex
+openclaw configure --section model
 openclaw gateway restart
 openclaw models status
 ```

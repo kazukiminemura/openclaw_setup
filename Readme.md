@@ -165,7 +165,7 @@ xhost +local:docker
 
 ```
 docker pull ghcr.io/openclaw/openclaw:main
-docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --network host ubuntu:24.04 bash
+docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --network host ghcr.io/openclaw/openclaw:main bash
 apt update & apt install curl git vim x11-apps -y
 xeyes
 ```

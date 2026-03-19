@@ -177,8 +177,8 @@ xeyes
 ```
 openclaw configure --section mode
 openclaw configure --section channels
-openclaw config set browser.noSandbox true
-openclaw gateway
+openclaw doctor --fix
+openclaw gateway restart
 ```
 
 ## Skills setup

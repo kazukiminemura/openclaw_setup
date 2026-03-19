@@ -179,3 +179,10 @@ openclaw configure --section mode
 openclaw configure --section channels
 ```
 
+## Skills setup
+```
+npm install -g agent-browser
+agent-browser install
+agent-browser install --with-deps
+```
+

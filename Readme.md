@@ -77,9 +77,11 @@ openclaw configure --section channels
 openclaw doctor --fix
 openclaw gateway restart
 ```
-## model for remote
+## model for remote (openAI)
 ```
 openclaw onboard --auth-choice openai-codex
+openclaw gateway restart
+openclaw models status
 ```
 
 ## Skills setup

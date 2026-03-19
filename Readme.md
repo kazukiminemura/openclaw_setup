@@ -169,7 +169,8 @@ xhost +local:docker
 ```
 docker pull ghcr.io/openclaw/openclaw:main
 docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -u root --network host ghcr.io/openclaw/openclaw:main bash
-apt update && apt install curl git vim x11-apps fonts-noto-cjk fonts-noto-color-emoji -y
+apt update && apt install curl git vim x11-apps -y
+apt install fonts-noto-cjk fonts-noto-color-emoji fonts-ipafont fc-cache -y
 xeyes
 ```
 

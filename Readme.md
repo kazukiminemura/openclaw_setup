@@ -158,10 +158,15 @@ Official container
 https://github.com/openclaw/openclaw/pkgs/container/openclaw
 ```
 
+## on host
 ```
-docker pull ubuntu:24.04
+xhost +local:docker
+```
+
+```
+docker pull ghcr.io/openclaw/openclaw:main
 docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --network host ubuntu:24.04 bash
-apt update & apt install curl git vim
-curl -fsSL https://openclaw.ai/install.sh | bash
+apt update & apt install curl git vim x11-apps -y
+xeyes
 ```
 

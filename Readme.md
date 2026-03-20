@@ -83,6 +83,16 @@ newgrp docker
 docker run hello-world
 ```
 ---
+
+# one script
+```
+git clone this repo
+cd openclaw_setup
+chmod +x run_openclaw.sh; ./run_openclaw.sh
+```
+
+---
+# step by step
 # 🐳 OpenClaw Docker（GUI動作確認まで一括）
 以下をそのまま順番に実行すれば、  
 OpenClawコンテナ起動 → GUI確認（xeyes）まで完了します。

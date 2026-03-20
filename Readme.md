@@ -102,18 +102,12 @@ docker run -it \
 # ===== ここからコンテナ内 =====
 # 3. 基本ツールインストール
 apt update
-apt install -y curl git vim x11-apps
-
-# 4. フォントインストール（日本語 + 絵文字）
-apt install -y \
-  fonts-noto-cjk \
-  fonts-noto-color-emoji \
-  fonts-ipafont
+apt install -y curl git vim x11-apps fonts-noto-cjk fonts-noto-color-emoji fonts-ipafont
 
 # フォントキャッシュ更新
 fc-cache -fv
 
-# 5. GUI動作確認
+# 4. GUI動作確認
 xeyes
 # ===========================================
 ```

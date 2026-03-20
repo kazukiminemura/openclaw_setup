@@ -84,14 +84,41 @@ newgrp docker
 docker run hello-world
 ```
 
-# Openclaw docker image list
+# 🐳 OpenClaw Docker（GUI動作確認まで一括）
+以下をそのまま順番に実行すれば、  
+OpenClawコンテナ起動 → GUI確認（xeyes）まで完了します。
 ```
-https://github.com/openclaw/openclaw/pkgs/container/openclaw
+# ===== OpenClaw Docker セットアップ & 実行 =====
+
+# 1. イメージ取得
 docker pull ghcr.io/openclaw/openclaw:main
-docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -u root --network host ghcr.io/openclaw/openclaw:main bash
-apt update && apt install curl git vim x11-apps -y
-apt install fonts-noto-cjk fonts-noto-color-emoji fonts-ipafont fc-cache -y
+
+# 2. コンテナ起動（GUI対応・ホストネットワーク）
+docker run -it \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -u root \
+  --network host \
+  ghcr.io/openclaw/openclaw:main bash
+
+# ===== ここからコンテナ内 =====
+
+# 3. 基本ツールインストール
+apt update
+apt install -y curl git vim x11-apps
+
+# 4. フォントインストール（日本語 + 絵文字）
+apt install -y \
+  fonts-noto-cjk \
+  fonts-noto-color-emoji \
+  fonts-ipafont
+
+# フォントキャッシュ更新
+fc-cache -fv
+
+# 5. GUI動作確認
 xeyes
+# ===========================================
 ```
 
 

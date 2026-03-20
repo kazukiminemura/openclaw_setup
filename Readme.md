@@ -84,12 +84,12 @@ docker run hello-world
 ```
 ---
 
-# 一番かんたんな導入
+# 一括導入
 ```bash
-git clone this repo
-cd openclaw_setup
+git clone this repo; cd openclaw_setup
 chmod +x run_openclaw.sh; ./run_openclaw.sh
 openclaw onboard
+openclaw gateway &
 ```
 
 ---

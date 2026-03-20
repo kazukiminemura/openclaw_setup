@@ -87,7 +87,7 @@ docker run hello-world
 # 🐳 OpenClaw Docker（GUI動作確認まで一括）
 以下をそのまま順番に実行すれば、  
 OpenClawコンテナ起動 → GUI確認（xeyes）まで完了します。
-```
+```bash
 # ===== OpenClaw Docker セットアップ & 実行 =====
 
 # 1. イメージ取得

@@ -1,49 +1,35 @@
 services:
   openclaw:
-    image: ghcr.io/openclaw/openclaw:main
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: openclaw-custom:latest
     container_name: openclaw
     user: root
     network_mode: host
     stdin_open: true
     tty: true
     working_dir: /root
-
     environment:
       DISPLAY: ${DISPLAY}
       TZ: Asia/Tokyo
-
     volumes:
       # タイムゾーン同期
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
 
-      # X11 GUI 用
+      # X11 GUI
       - /tmp/.X11-unix:/tmp/.X11-unix
 
-      # あなたの Threads データを読み取り専用でマウント
+      # Threads データ
       - /home/threads-001/threads:/run/threads:ro
 
-      # OpenClaw の設定を永続化
+      # 永続化
       - openclaw_home:/root
       - openclaw_config:/config
       - openclaw_workspace:/workspace
 
-    command: >
-      bash -lc "
-        apt update &&
-        DEBIAN_FRONTEND=noninteractive apt install -y
-          curl
-          git
-          vim
-          x11-apps
-          fonts-noto-cjk
-          fonts-noto-color-emoji
-          fonts-ipafont
-          python3.11-venv &&
-        fc-cache -fv &&
-        echo 'OpenClaw container is ready.' &&
-        bash
-      "
+    command: bash
 
 volumes:
   openclaw_home:

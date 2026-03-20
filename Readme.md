@@ -1,41 +1,26 @@
 
 # 🐳 Openclaw　セットアップ（Ubuntu）
-
----
+OSS openclawをdocker使ってのセットアップ方法
 ---
 
 # 🐳 Docker セットアップ
+以下を順番に実行すれば、Dockerが使えるようになります。
 ---
 
-## 1️⃣ 事前準備
-
-Dockerをインストールする前に必要なパッケージを入れます。
+## 🔧 セットアップ手順（まとめて実行）
 
 ```bash
+# 1. 基本パッケージ
 sudo apt update
 sudo apt install -y ca-certificates curl
-```
 
----
-
-## 2️⃣ Docker公式GPGキーの追加
-
-```bash
+# 2. GPGキー追加
 sudo install -m 0755 -d /etc/apt/keyrings
-
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
   -o /etc/apt/keyrings/docker.asc
-
 sudo chmod a+r /etc/apt/keyrings/docker.asc
-```
 
----
-
-## 3️⃣ Dockerリポジトリの追加
-
-Dockerのパッケージ取得先を登録します。
-
-```bash
+# 3. リポジトリ追加
 sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
 Types: deb
 URIs: https://download.docker.com/linux/ubuntu
@@ -43,98 +28,41 @@ Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
 Components: stable
 Signed-By: /etc/apt/keyrings/docker.asc
 EOF
-```
 
----
-
-## 4️⃣ Dockerのインストール
-
-```bash
+# 4. Dockerインストール
 sudo apt update
-
 sudo apt install -y \
-  docker-ce \
-  docker-ce-cli \
-  containerd.io \
-  docker-buildx-plugin \
-  docker-compose-plugin
-```
+  docker-ce docker-ce-cli containerd.io \
+  docker-buildx-plugin docker-compose-plugin
 
----
-
-## 5️⃣ sudoなしでDockerを使う設定
-
-### 🔹 dockerグループ作成
-
-```bash
+# 5. sudoなし設定
 sudo groupadd docker
-```
-
-※ 既に存在する場合は無視されます
-
----
-
-### 🔹 ユーザーをdockerグループに追加
-
-```bash
 sudo usermod -aG docker $USER
-```
 
----
-
-### 🔹 グループ設定を反映
-
-```bash
+# 6. グループ反映
 newgrp docker
-```
 
-または一度ログアウト → 再ログイン
-
----
-
-## 6️⃣ 動作確認
-
-```bash
+# 7. 動作確認
 docker run hello-world
 ```
 
 ---
 
-## ✅ 補足
+## ✅ 完了後にできること
 
-### Dockerが動いているか確認
-
-```bash
-docker ps
-```
+- sudoなしで `docker` が使える
+- `docker compose` が使える
+- AI環境（OpenClaw / Ollamaなど）構築可能
 
 ---
 
-### Dockerサービス確認
-
-```bash
-systemctl status docker
-```
-
----
-
-### ❌ トラブルシュート（permission denied）
+## ⚠️ うまくいかない場合
 
 ```bash
 groups
 ```
 
-👉 `docker` が含まれていない場合は再ログイン
-
----
-
-## 🚀 完了
-
-これで以下が可能になります：
-
-- `docker run` をsudoなしで実行
-- `docker compose` の利用
-- AI環境（OpenClaw / Ollamaなど）の構築
+👉 `docker` が含まれていなければ再ログイン
 
 
 

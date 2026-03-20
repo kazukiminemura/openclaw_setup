@@ -172,17 +172,14 @@ openclaw configure --section model
 # 🚀 OpenClaw 起動方法（Gateway）
 OpenClawを起動するには、gateway（通信部分）を立ち上げます。
 ```bash
-# ① Gateway起動（必須）
-openclaw gateway &
-
-# ② 初期設定（モデル・チャネル）
+# ① 初期設定（モデル・チャネル）
 openclaw configure --section channels
 openclaw pairing approve discord xxxxx
 
-# ③ 自動修復
+# ② 自動修復
 openclaw doctor --fix
 
-# ④ 再起動（設定反映）
+# ③ 再起動（設定反映）
 openclaw gateway restart
 ```
 ---

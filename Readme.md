@@ -83,6 +83,7 @@ openclaw gateway restart
 ## model for remote (openAI Codex)
 ```
 openclaw configure --section model
+openclaw models set openai-codex/gpt-5.4
 openclaw plugins install acpx
 openclaw config set plugins.entries.acpx.enabled true
 openclaw gateway restart

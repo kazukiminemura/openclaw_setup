@@ -14,7 +14,8 @@ RUN apt update && apt install -y \
     fonts-noto-cjk \
     fonts-noto-color-emoji \
     fonts-ipafont \
-    python3.11-venv \
+    python3-pip \
+    python3-venv \
     && fc-cache -fv \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*

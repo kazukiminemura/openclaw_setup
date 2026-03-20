@@ -93,8 +93,11 @@ docker pull ghcr.io/openclaw/openclaw:main
 # 2. コンテナ起動（GUI対応・ホストネットワーク）
 docker run -it \
   -e DISPLAY=$DISPLAY \
-  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -e TZ=Asia/Tokyo \
+  -v /etc/localtime:/etc/localtime:ro \
+  -v /etc/timezone:/etc/timezone:ro \
   -v /home/threads-001/threads:/run/threads:ro \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
   -u root \
   --network host \
   ghcr.io/openclaw/openclaw:main bash

@@ -84,7 +84,7 @@ docker run hello-world
 ```
 ---
 
-# one script and openclaw onboard
+# 一番かんたんな導入
 ```bash
 git clone this repo
 cd openclaw_setup
@@ -93,6 +93,8 @@ openclaw onboard
 ```
 
 ---
+
+
 # step by step
 # 🐳 OpenClaw Docker（GUI動作確認まで一括）
 以下をそのまま順番に実行すれば、  
@@ -198,24 +200,5 @@ openclaw gateway restart
 ## other setup
 ```
 apt install python3.11-venv -y
-```
-
-# Others
-
-## on host
-```
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb
-google-chrome-stable
-xhost +local:docker
-```
-
-
-
-## Skills setup
-```
-npm install -g agent-browser
-agent-browser install
-agent-browser install --with-deps
 ```
 

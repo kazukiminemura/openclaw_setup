@@ -110,6 +110,37 @@ fc-cache -fv
 xeyes
 # ===========================================
 ```
+---
+
+# 🤖 OpenClaw（OpenAI Codex / GPT-5.4 リモートモデル設定）
+以下を順番に実行すれば、  
+OpenClawコンテナ内で **Codex（GPT-5.4）をリモートモデルとして設定**できます。
+
+```bash
+# ===== OpenClaw リモートモデル設定（Codex） =====
+
+# 1. モデル設定画面へ
+openclaw configure --section model
+
+# 2. 使用モデルを設定（OpenAI Codex）
+openclaw models set openai-codex/gpt-5.4
+
+# 3. OpenAI接続用プラグインをインストール
+openclaw plugins install acpx
+
+# 4. プラグインを有効化
+openclaw config set plugins.entries.acpx.enabled true
+
+# 5. gateway再起動（設定反映）
+openclaw gateway restart
+
+# 6. 状態確認
+openclaw models status
+
+# ==============================================
+```
+---
+
 
 
 ## ollama on host

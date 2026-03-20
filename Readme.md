@@ -3,11 +3,11 @@
 OSS openclawをdocker使ってのセットアップ方法
 ---
 
-# 🐳 Docker セットアップ
+# Docker セットアップ
 以下を順番に実行すれば、Dockerが使えるようになります。
 ---
 
-## 🔧 セットアップ手順（まとめて実行）
+## セットアップ手順（まとめて実行）
 
 ```bash
 # 1. 基本パッケージ
@@ -45,26 +45,6 @@ newgrp docker
 # 7. 動作確認
 docker run hello-world
 ```
-
----
-
-## ✅ 完了後にできること
-
-- sudoなしで `docker` が使える
-- `docker compose` が使える
-- AI環境（OpenClaw / Ollamaなど）構築可能
-
----
-
-## ⚠️ うまくいかない場合
-
-```bash
-groups
-```
-
-👉 `docker` が含まれていなければ再ログイン
-
-
 
 
 # Openclaw docker image list

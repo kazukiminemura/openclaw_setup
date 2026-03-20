@@ -80,11 +80,14 @@ openclaw configure --section channels
 openclaw doctor --fix
 openclaw gateway restart
 ```
-## model for remote (openAI)
+## model for remote (openAI Codex)
 ```
 openclaw configure --section model
+openclaw plugins install acpx
+openclaw config set plugins.entries.acpx.enabled true
 openclaw gateway restart
 openclaw models status
+
 ```
 
 ## Skills setup

@@ -95,7 +95,7 @@ docker run -it \
   -e DISPLAY=$DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v /home/threads-001/threads:/run/threads:ro \
-  -u $(id -u):$(id -g) \
+  -u root \
   --network host \
   ghcr.io/openclaw/openclaw:main bash
 

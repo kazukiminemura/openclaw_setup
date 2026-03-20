@@ -130,6 +130,7 @@ openclaw plugins install acpx
 
 # 4. プラグインを有効化
 openclaw config set plugins.entries.acpx.enabled true
+openclaw config set plugins.allow '["acpx"]'
 
 # 5. gateway再起動（設定反映）
 openclaw gateway restart

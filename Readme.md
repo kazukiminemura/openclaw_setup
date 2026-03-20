@@ -84,11 +84,12 @@ docker run hello-world
 ```
 ---
 
-# one script
-```
+# one script and openclaw onboard
+```bash
 git clone this repo
 cd openclaw_setup
 chmod +x run_openclaw.sh; ./run_openclaw.sh
+openclaw onboard
 ```
 
 ---

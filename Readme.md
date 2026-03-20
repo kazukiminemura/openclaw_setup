@@ -88,8 +88,6 @@ docker run hello-world
 以下をそのまま順番に実行すれば、  
 OpenClawコンテナ起動 → GUI確認（xeyes）まで完了します。
 ```bash
-# ===== OpenClaw Docker セットアップ & 実行 =====
-
 # 1. イメージ取得
 docker pull ghcr.io/openclaw/openclaw:main
 
@@ -102,7 +100,6 @@ docker run -it \
   ghcr.io/openclaw/openclaw:main bash
 
 # ===== ここからコンテナ内 =====
-
 # 3. 基本ツールインストール
 apt update
 apt install -y curl git vim x11-apps

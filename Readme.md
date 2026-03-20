@@ -1,11 +1,10 @@
 
-# 🐳 Openclawセットアップ（Ubuntu）
+# 🐳 Openclaw　セットアップ（Ubuntu）
 
 ---
 ---
 
-# 🐳 Docker セットアップ手順（Ubuntu）
-
+# 🐳 Docker セットアップ
 ---
 
 ## 1️⃣ 事前準備

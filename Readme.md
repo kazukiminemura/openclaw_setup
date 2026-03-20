@@ -139,22 +139,36 @@ openclaw models status
 
 # ==============================================
 ```
+
+## 🧠 OpenClaw + Ollama（ローカルモデル）設定
+以下の手順で、ホスト上のOllamaをOpenClawコンテナから利用できます。
+### 🖥 ホスト側（Ubuntu）
+```bash
+# ===== Ollama セットアップ（ホスト） =====
+
+# 1. Ollamaインストール
+curl -fsSL https://ollama.com/install.sh | sh
+
+# 2. モデル取得
+ollama pull qwen3.5:4b
+
+# 3. 再起動（推奨）
+reboot
+```
+### 🐳 コンテナ側（OpenClaw）
+```bash
+# ===== OpenClaw 側設定（コンテナ内） =====
+
+# 1. モデル設定画面
+openclaw configure --section model
+
+# （ここで Ollama / qwen3.5:4b を選択）
+# ========================================
+```
 ---
 
 
-
-## ollama on host
-```
-curl -fsSL https://ollama.com/install.sh | sh
-ollama pull qwen3.5:4b
-reboot
-```
-
 # Manual install for openclaw
-Official container
-```
-https://github.com/openclaw/openclaw/pkgs/container/openclaw
-```
 
 ## on host
 ```
@@ -172,16 +186,7 @@ openclaw configure --section channels
 openclaw doctor --fix
 openclaw gateway restart
 ```
-## model for remote (openAI Codex)
-```
-openclaw configure --section model
-openclaw models set openai-codex/gpt-5.4
-openclaw plugins install acpx
-openclaw config set plugins.entries.acpx.enabled true
-openclaw gateway restart
-openclaw models status
 
-```
 
 ## Skills setup
 ```

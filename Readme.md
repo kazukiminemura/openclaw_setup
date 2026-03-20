@@ -142,7 +142,6 @@ openclaw models status
 
 ## 🧠 OpenClaw + Ollama（ローカルモデル）設定
 以下の手順で、ホスト上のOllamaをOpenClawコンテナから利用できます。
-### 🖥 ホスト側（Ubuntu）
 ```bash
 # ===== Ollama セットアップ（ホスト） =====
 
@@ -154,9 +153,7 @@ ollama pull qwen3.5:4b
 
 # 3. 再起動（推奨）
 reboot
-```
-### 🐳 コンテナ側（OpenClaw）
-```bash
+
 # ===== OpenClaw 側設定（コンテナ内） =====
 
 # 1. モデル設定画面

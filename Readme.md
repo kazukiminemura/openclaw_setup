@@ -186,7 +186,7 @@ openclaw gateway restart
 
 ## other setup
 ```
-apt install python3.11-venv
+apt install python3.11-venv -y
 ```
 
 # Manual install for openclaw

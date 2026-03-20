@@ -166,14 +166,19 @@ openclaw configure --section model
 
 # 🚀 OpenClaw 起動方法（Gateway）
 OpenClawを起動するには、gateway（通信部分）を立ち上げます。
-## 🐳 コンテナ内で実行
+## 🚀 手順
 ```bash
-# OpenClaw gateway をバックグラウンド起動
+# ① Gateway起動（必須）
 openclaw gateway &
-openclaw configure --section channels
+
+# ② 初期設定（モデル・チャネル）
+openclaw configure
+
+# ③ 自動修復
 openclaw doctor --fix
+
+# ④ 再起動（設定反映）
 openclaw gateway restart
-```
 ---
 
 

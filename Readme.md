@@ -85,6 +85,7 @@ docker run hello-world
 ---
 
 # 一括導入
+prepare credentials into correspoding directory before mount docker!!!!
 ```bash
 git clone this repo; cd openclaw_setup
 chmod +x run_openclaw.sh; ./run_openclaw.sh

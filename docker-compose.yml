@@ -9,7 +9,7 @@ services:
     network_mode: host
     stdin_open: true
     tty: true
-    working_dir: /root
+    working_dir: /home/node
     environment:
       DISPLAY: ${DISPLAY}
       TZ: Asia/Tokyo
@@ -25,9 +25,9 @@ services:
       - /home/threads-001/threads:/run/threads:ro
 
       # 永続化
-      - openclaw_home:/root
-      - openclaw_config:/config
-      - openclaw_workspace:/workspace
+      - openclaw_home:/home/node
+      - openclaw_config:/home/node/.openclaw
+      - openclaw_workspace:/home/node/.openclaw/workspace
 
     command: bash
 

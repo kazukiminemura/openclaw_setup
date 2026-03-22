@@ -20,6 +20,8 @@ RUN apt update && apt install -y \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /root
+USER node
+WORKDIR /home/node
+
 
 CMD ["bash"]

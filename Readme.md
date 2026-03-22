@@ -203,3 +203,26 @@ openclaw gateway restart
 apt install python3.11-venv -y
 ```
 
+# Security setup
+```bash
+# ① UFWインストール（未インストールなら）
+sudo apt install -y ufw
+
+# ② デフォルトポリシー（全部拒否）
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# ③ SSHだけ許可（最重要）
+sudo ufw allow ssh
+# または sudo ufw allow 22
+
+# ④ 状態確認（念のため）
+sudo ufw status
+
+# ⑤ 有効化
+sudo ufw enable
+```
+
+
+
+

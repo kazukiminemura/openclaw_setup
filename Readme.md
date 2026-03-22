@@ -221,6 +221,8 @@ sudo ufw status
 
 # ⑤ 有効化
 sudo ufw enable
+
+sudo ufw reload
 ```
 
 

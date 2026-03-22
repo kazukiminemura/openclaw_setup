@@ -11,6 +11,7 @@ services:
     tty: true
     working_dir: /home/node
     environment:
+      HOME: /home/node
       DISPLAY: ${DISPLAY}
       TZ: Asia/Tokyo
     volumes:
@@ -25,13 +26,11 @@ services:
       - /home/threads-001/threads:/run/threads:ro
 
       # 永続化
-      - openclaw_home:/home/node
       - openclaw_config:/home/node/.openclaw
       - openclaw_workspace:/home/node/.openclaw/workspace
 
     command: bash
 
 volumes:
-  openclaw_home:
   openclaw_config:
   openclaw_workspace:

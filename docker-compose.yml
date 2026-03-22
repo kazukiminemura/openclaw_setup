@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     image: openclaw-custom:latest
     container_name: openclaw
-    user: root
+    user: node
     network_mode: host
     stdin_open: true
     tty: true

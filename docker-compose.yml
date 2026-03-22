@@ -5,13 +5,13 @@ services:
       dockerfile: Dockerfile
     image: openclaw-custom:latest
     container_name: openclaw
-    user: node
+    user: root
     network_mode: host
     stdin_open: true
     tty: true
-    working_dir: /home/node
+    working_dir: /root
     environment:
-      HOME: /home/node
+      HOME: /root
       DISPLAY: ${DISPLAY}
       TZ: Asia/Tokyo
     volumes:
@@ -26,8 +26,8 @@ services:
       - /home/threads-001/threads:/run/threads:ro
 
       # 永続化
-      - openclaw_config:/home/node/.openclaw
-      - openclaw_workspace:/home/node/.openclaw/workspace
+      - openclaw_config:/root/.openclaw
+      - openclaw_workspace:/root/.openclaw/workspace
 
     command: bash
 

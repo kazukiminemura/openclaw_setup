@@ -5,6 +5,10 @@ USER root
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
 ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+ENV APP_HOME=/home/appuser
+ENV THREADS2SPREAD_DIR=/home/appuser/threads2spread
+ENV VIRTUAL_ENV=/home/appuser/threads2spread/.venv
+ENV PATH=/home/appuser/threads2spread/.venv/bin:$PATH
 
 RUN apt update && apt install -y \
     ca-certificates \
@@ -47,12 +51,21 @@ RUN apt update && apt install -y \
     && playwright install chromium \
     && useradd -m -s /bin/bash appuser \
     && mkdir -p /home/appuser/.openclaw/workspace \
+    && git clone https://github.com/kazukiminemura/threads2spread.git /home/appuser/threads2spread \
+    && python3 -m venv /home/appuser/threads2spread/.venv \
+    && /home/appuser/threads2spread/.venv/bin/pip install --upgrade pip \
+    && /home/appuser/threads2spread/.venv/bin/pip install -r /home/appuser/threads2spread/requirements.txt \
+    && /home/appuser/threads2spread/.venv/bin/python -m playwright install-deps chromium \
+    && /home/appuser/threads2spread/.venv/bin/python -m playwright install chromium \
+    && touch /home/appuser/threads2spread/.playwright-browser-installed \
+    && touch /home/appuser/threads2spread/.playwright-deps-installed \
+    && touch /home/appuser/threads2spread/.playwright-installed \
     && chown -R appuser:appuser /home/appuser /ms-playwright \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
 USER appuser
-WORKDIR /home/appuser
+WORKDIR /home/appuser/threads2spread
 
 
 CMD ["bash"]

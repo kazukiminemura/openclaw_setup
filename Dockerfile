@@ -1,14 +1,17 @@
 FROM ghcr.io/openclaw/openclaw:main
 
-USER root
+USER node
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 
 RUN apt update && apt install -y \
     ca-certificates \
     curl \
     git \
+    nodejs \
+    npm \
     vim \
     x11-apps \
     fonts-noto-cjk \
@@ -40,10 +43,12 @@ RUN apt update && apt install -y \
     libxrandr2 \
     libxshmfence1 \
     && fc-cache -fv \
+    && npm install -g playwright \
+    && playwright install chromium \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /root
+WORKDIR /node
 
 
 CMD ["bash"]

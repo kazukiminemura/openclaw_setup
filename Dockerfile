@@ -1,6 +1,6 @@
 FROM ghcr.io/openclaw/openclaw:main
 
-USER node
+USER root
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tokyo
@@ -45,10 +45,14 @@ RUN apt update && apt install -y \
     && fc-cache -fv \
     && npm install -g playwright \
     && playwright install chromium \
+    && useradd -m -s /bin/bash appuser \
+    && mkdir -p /home/appuser/.openclaw/workspace \
+    && chown -R appuser:appuser /home/appuser /ms-playwright \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /node
+USER appuser
+WORKDIR /home/appuser
 
 
 CMD ["bash"]

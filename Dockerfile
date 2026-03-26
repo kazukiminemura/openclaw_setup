@@ -70,5 +70,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 USER ${APP_USER}
 WORKDIR ${THREADS2SPREAD_DIR}
 
+HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
+    CMD test -x /bin/bash \
+    && test -d "${THREADS2SPREAD_DIR}" \
+    && test -f "${THREADS2SPREAD_DIR}/.playwright-installed" \
+    || exit 1
 
 CMD ["bash"]

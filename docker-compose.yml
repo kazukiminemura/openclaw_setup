@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     image: openclaw-custom:latest
     container_name: openclaw
-    user: root
+    user: appuser
     network_mode: host
     stdin_open: true
     tty: true
@@ -24,8 +24,6 @@ services:
 
       # Threads データ
       - /home/$USER/threads:/run/threads:ro
-
-    user: appuser
 
 volumes:
   openclaw_config:

@@ -25,13 +25,7 @@ services:
       # Threads データ
       - /home/$USER/threads:/run/threads:ro
 
-      # 永続化
-      - openclaw_config:/home/appuser/.openclaw
-
-    command:
-      - /bin/bash
-      - -lc
-      - chown -R appuser:appuser /home/appuser/.openclaw && exec su -s /bin/bash appuser
+    user: appuser
 
 volumes:
   openclaw_config:
